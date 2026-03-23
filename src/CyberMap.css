@@ -1,42 +1,41 @@
+/* ===================================================================
+   CYBER MAP
+=================================================================== */
 .map-wrapper {
-  margin-bottom: 30px;
-  animation: fadeIn 1s ease-out;
+  margin-bottom: 24px;
 }
 
 .map-title {
-  color: #06b6d4;
-  margin-bottom: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1.1rem;
-  border-left: 4px solid #06b6d4;
+  letter-spacing: 0.8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-left: 3px solid var(--accent);
   padding-left: 10px;
 }
 
 .map-container-border {
-  height: 400px;
+  height: 360px;
   width: 100%;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
   position: relative;
 }
 
-/* Style de la popup Leaflet */
+/* Popup Leaflet */
 .leaflet-popup-content-wrapper {
-  background: #1e293b;
-  color: white;
-  border: 1px solid #334155;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
-.leaflet-popup-tip {
-  background: #1e293b;
-}
+.leaflet-popup-tip { background: var(--bg-surface); }
 
-.map-popup {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-}
-.map-popup strong { color: #06b6d4; font-size: 1rem; }
-.map-popup .ok { color: #10b981; font-weight: bold; }
-.map-popup .ko { color: #f59e0b; font-weight: bold; }
+.map-popup { font-family: 'Inter', sans-serif; font-size: 0.875rem; }
+.map-popup strong { color: var(--accent); font-size: 0.95rem; }
+.map-popup .ok { color: var(--success); font-weight: 600; }
+.map-popup .ko { color: var(--warning); font-weight: 600; }

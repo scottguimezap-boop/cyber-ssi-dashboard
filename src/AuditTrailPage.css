@@ -1,0 +1,80 @@
+/* ===================================================================
+   AUDIT TRAIL PAGE
+=================================================================== */
+.at-layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  padding: 32px 24px;
+  font-family: 'Inter', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.at-header { margin-bottom: 24px; }
+.at-header h1 { font-size: 1.5rem; font-weight: 600; margin: 0; }
+.at-header p { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
+
+.at-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.at-filter-input, .at-filter-select {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.at-filter-input { flex: 1; max-width: 300px; }
+.at-filter-input:focus, .at-filter-select:focus { border-color: var(--accent); outline: none; }
+
+.at-table-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.at-table { width: 100%; border-collapse: collapse; }
+.at-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+.at-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-muted);
+  font-size: 0.85rem;
+}
+.at-table tr:hover td { background: var(--bg-elevated); }
+
+.at-date { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
+.at-target { font-weight: 600; }
+.at-details { font-size: 0.78rem; color: var(--text-muted); max-width: 250px; overflow: hidden; text-overflow: ellipsis; }
+
+.at-action-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.at-action-badge.green { background: var(--success-subtle); color: var(--success); }
+.at-action-badge.red { background: var(--danger-subtle); color: var(--danger); }
+.at-action-badge.blue { background: var(--accent-subtle); color: var(--accent); }
+
+@media (max-width: 768px) {
+  .at-filters { flex-direction: column; }
+  .at-filter-input { max-width: 100%; }
+}

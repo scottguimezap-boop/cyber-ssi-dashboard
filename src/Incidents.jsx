@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { collection, query, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import { db } from "./db/firebase";
 import { useNavigate } from "react-router-dom";
+import { logAction, ACTIONS } from "./utils/auditTrail";
 import "./Incidents.css";
 
-const Incidents = () => {
+const Incidents = ({ connectedUser }) => {
   const [incidents, setIncidents] = useState([]);
   const navigate = useNavigate();
 
@@ -18,9 +19,11 @@ const Incidents = () => {
     return () => unsubscribe();
   }, []);
 
-  const resolveIncident = async (id) => {
+  const resolveIncident = async (incidentId) => {
     if (window.confirm("Confirmer la résolution de cet incident ?")) {
-      await updateDoc(doc(db, "incidents", id), { statut: "Résolu" });
+      await updateDoc(doc(db, "incidents", incidentId), { statut: "Résolu" });
+      const inc = incidents.find(i => i.id === incidentId);
+      logAction(connectedUser?.email || "admin", ACTIONS.RESOUDRE_INCIDENT, inc?.titre || incidentId);
     }
   };
 
@@ -31,23 +34,12 @@ const Incidents = () => {
   return (
     <div className="crisis-room">
       <div className="crisis-bg"></div>
-      
-      <header className="crisis-header">
-        <button onClick={() => navigate('/gestion')} className="btn-back-crisis">← Retour Dashboard</button>
-        <div className="header-title">
-            <h1>SALLE DE CRISE</h1>
-            <p>Supervision des incidents de sécurité en temps réel</p>
-        </div>
-        <div className="live-indicator">
-            <span className="blink-dot"></span> LIVE
-        </div>
-      </header>
 
       <div className="crisis-content">
         
         {/* SECTION 1 : INCIDENTS ACTIFS */}
         <section className="active-zone">
-          <h2>🔥 Incidents En Cours ({activeIncidents.length})</h2>
+          <h2>🔥 Incidents En Cours ({activeIncidents.length}) <span className="live-indicator"><span className="blink-dot"></span> LIVE</span></h2>
           <div className="incidents-grid">
             {activeIncidents.map(inc => (
               <div key={inc.id} className={`incident-card ${inc.gravite}`}>

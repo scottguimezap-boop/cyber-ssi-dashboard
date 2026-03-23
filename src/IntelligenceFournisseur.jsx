@@ -103,7 +103,6 @@ const IntelligenceFournisseur = () => {
             <p>Le fournisseur <strong>"{supplierName}"</strong> n'apparaît pas dans les registres internationaux certifiés.</p>
             <p style={{fontSize: '0.9rem', color: '#64748b'}}>Veuillez vérifier l'orthographe ou saisir un fournisseur majeur (ex: Microsoft, Orange, AWS, OVH...).</p>
             <div className="error-actions">
-              <button onClick={() => navigate('/gestion')} className="btn-back-error">Retour Dashboard</button>
               <button onClick={() => window.location.reload()} className="btn-retry">Relancer Scan</button>
             </div>
           </div>
@@ -114,7 +113,6 @@ const IntelligenceFournisseur = () => {
       {scanStatus === "complete" && intelData && (
         <div className="intel-container">
           <div className="intel-header no-print">
-            <button onClick={() => navigate('/gestion')} className="btn-back">← Retour</button>
             <h1 className="intel-title">Rapport d'Intelligence</h1>
             <button onClick={handlePrint} className="btn-action btn-print">🖨️ PDF</button>
           </div>

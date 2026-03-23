@@ -1,0 +1,95 @@
+/* ===================================================================
+   ADMIN USERS
+=================================================================== */
+.admin-layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  padding: 32px 24px;
+  font-family: 'Inter', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header { margin-bottom: 24px; }
+.admin-header h1 { font-size: 1.5rem; font-weight: 600; margin: 0; }
+.admin-header p { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
+
+.admin-toolbar { margin-bottom: 16px; }
+.admin-search {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.15s;
+}
+.admin-search:focus { border-color: var(--accent); outline: none; }
+
+.admin-table-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-muted);
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+.admin-table tr:hover td { background: var(--bg-elevated); }
+
+.admin-user-cell { display: flex; align-items: center; gap: 10px; }
+.admin-avatar {
+  width: 32px; height: 32px;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: var(--accent);
+}
+.admin-email { color: var(--text-secondary); font-size: 0.85rem; }
+
+.role-badge {
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.role-admin { background: var(--accent-subtle); color: var(--accent); }
+.role-auditeur { background: var(--warning-subtle); color: var(--warning); }
+.role-lecteur { background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border); }
+
+.role-actions { display: flex; gap: 6px; }
+.role-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.15s;
+}
+.role-btn:hover { border-color: var(--accent); color: var(--accent); }
+.role-btn.active { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); cursor: default; }
+.role-btn:disabled { opacity: 0.5; cursor: default; }

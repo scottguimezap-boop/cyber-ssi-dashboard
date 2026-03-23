@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "./db/firebase";
+import { logAction, ACTIONS } from "./utils/auditTrail";
 import "./ModifierFournisseur.css";
 
-const ModifierFournisseur = () => {
+const ModifierFournisseur = ({ connectedUser }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
@@ -42,6 +43,7 @@ const ModifierFournisseur = () => {
         niveauPenetration: Number(formData.niveauPenetration || 0)
       };
       await updateDoc(docRef, dataToUpdate);
+      logAction(connectedUser?.email || "admin", ACTIONS.MODIFIER_FOURNISSEUR, dataToUpdate.nomFournisseur || id);
       navigate(`/fournisseur/${id}`);
     } catch (error) { alert("Erreur : " + error.message); } 
     finally { setSaving(false); }

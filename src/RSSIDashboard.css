@@ -1,0 +1,107 @@
+/* ===================================================================
+   RSSI DASHBOARD
+=================================================================== */
+.rssi-layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  padding: 32px 24px;
+  font-family: 'Inter', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rssi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.rssi-header h1 { font-size: 1.5rem; font-weight: 600; margin: 0; }
+.rssi-header p { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
+
+.btn-rssi-export {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-rssi-export:hover { background: var(--accent-hover); }
+
+/* KPI Cards */
+.rssi-kpis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.rssi-kpi {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+.kpi-value { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.kpi-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Charts */
+.rssi-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.rssi-chart-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.rssi-chart-card h3 { margin: 0 0 14px; font-size: 0.9rem; font-weight: 600; }
+
+/* Bottom */
+.rssi-bottom {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 16px;
+}
+
+.rssi-top5 {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.rssi-top5 h3 { margin: 0 0 14px; font-size: 0.9rem; font-weight: 600; }
+.top5-list { display: flex; flex-direction: column; gap: 8px; }
+.top5-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.top5-rank { font-weight: 700; font-size: 0.85rem; color: var(--text-muted); min-width: 28px; }
+.top5-name { flex: 1; font-size: 0.875rem; font-weight: 500; }
+.top5-score { font-weight: 700; font-size: 0.9rem; }
+.top5-empty { color: var(--text-muted); font-size: 0.85rem; }
+
+@media (max-width: 1100px) {
+  .rssi-kpis { grid-template-columns: repeat(3, 1fr); }
+  .rssi-charts { grid-template-columns: 1fr; }
+  .rssi-bottom { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .rssi-kpis { grid-template-columns: repeat(2, 1fr); }
+  .rssi-header { flex-direction: column; gap: 12px; }
+}

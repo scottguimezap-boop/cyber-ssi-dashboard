@@ -38,14 +38,11 @@ const ContactsGlobal = () => {
       <div className="contacts-bg"></div>
       
       <header className="contacts-header">
-        <div className="header-left">
-           <button onClick={() => navigate('/gestion')} className="btn-back-contacts">← Retour Dashboard</button>
-           <div className="header-title-contacts">
-               <h1>ANNUAIRE CYBER</h1>
-               <p>Répertoire des interlocuteurs clés (DSI, DPO, Support)</p>
-           </div>
+        <div className="header-title-contacts">
+          <h1>ANNUAIRE CYBER</h1>
+          <p>Répertoire des interlocuteurs clés (DSI, DPO, Support)</p>
         </div>
-        
+
         <div className="search-contact-box">
             <span className="icon">🔍</span>
             <input 
